@@ -8,7 +8,7 @@ class Node:
         self.name        = name
         self.type        = type
         self.description = descr
-        self.label = name[:3].capitalize
+        self.label = name[:3].capitalize if len(name) > 3 else name
     
     def __str__(self):
         return "{} | {}".format(self.label, self.type)
