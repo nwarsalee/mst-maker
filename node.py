@@ -32,3 +32,10 @@ class Nodes:
                 return node
         
         return None
+
+    def __str__(self):
+        out = ""
+        for node in self.nodes:
+            out += str(node) + "\n"
+        
+        return out

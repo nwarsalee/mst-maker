@@ -34,3 +34,10 @@ class Edges:
                 return edge
         
         return None
+    
+    def __str__(self):
+        out = ""
+        for edge in self.edges:
+            out += str(edge) + "\n"
+        
+        return out
