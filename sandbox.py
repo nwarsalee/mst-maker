@@ -3,35 +3,28 @@
 # MST Maker
 # Sandbox env
 
-from node import Node
-from edge import Edge
+from graph import Graph
+from mst import MST
 
-# Create list of nodes
-names = ["A", "B", "C", "D"]
+# TODO:
+#       - Create a class to make MST
+#       - Implement MST algorithm
+#       - Try running MST algo on test graph
+#       - Attempt to construct the friend graph zach made
+#       - Run MST on that
 
-nodes = []
-edges = []
+# TODO: Make the nodes csv and edge csv paths cmd line args
 
-for name in names:
-    temp = Node(name, 0)
-    nodes.append(temp)
+# Attempt to create graph object
+g = Graph('./test_nodes.csv', './test_edges.csv')
 
-# Create manual node connections
-e1 = Edge(nodes[0], nodes[1], 5)
-e2 = Edge(nodes[0], nodes[2], 3)
-e3 = Edge(nodes[3], nodes[1], 4)
-e4 = Edge(nodes[3], nodes[2], 1)
+print(g.nodes)
+print(g.edges)
 
-edges.append(e1)
-edges.append(e2)
-edges.append(e3)
-edges.append(e4)
+mst_maker = MST()
 
-# Print out nodes
-for node in nodes:
-    print(node)
+mst = mst_maker.compute_mst(g)
 
-# Print out nodes
-for edge in edges:
-    print(edge)
-
+print("MST")
+print(mst.nodes)
+print(mst.edges)

@@ -12,26 +12,46 @@ class Node:
     
     def __str__(self):
         return "{} | {}".format(self.label, self.type)
+    
+    def __rpr__(self):
+        return "{} | {}".format(self.label, self.type)
+    
+    def __eq__(self, other):
+        return self.name == other.name
 
 class Nodes:
     def __init__(self):
         self.nodes = []
 
     def add(self, node):
+        if self.find(node):
+            # Don't add duplicate node with same ID
+            return
+        
         self.nodes.append(node)
 
     def get(self, index):
         return self.nodes[index]
+    
+    def get_all(self):
+        return self.nodes
 
     def total_nodes(self):
         return len(self.nodes)
 
-    def find(self, id):
+    def find(self, other):
+        for node in self.nodes:
+            if node == other:
+                return node
+        
+        return False
+
+    def find_by_id(self, id):
         for node in self.nodes:
             if node.name == id:
                 return node
         
-        return None
+        return False
 
     def __str__(self):
         out = ""
