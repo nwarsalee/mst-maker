@@ -6,7 +6,7 @@
 from graph import Graph
 from node import Nodes
 from edge import Edges
-
+import random
 
 class MST:
     def compute_mst(self, graph: Graph):
@@ -17,6 +17,7 @@ class MST:
 
         # Add start node to MST
         # TODO: Make this random?
+        indx = random.randint(0, graph.total_nodes()-1)
         start_node = graph.nodes.get(0)
         mst.nodes.add(start_node)
 

@@ -93,3 +93,6 @@ class Edges:
 
     def min_edge(self):
         return min(self.edges, key=lambda x: x.weight)
+
+    def total_weight(self):
+        return sum(e.weight for e in self.edges)
