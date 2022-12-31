@@ -12,3 +12,23 @@ class Node:
     
     def __str__(self):
         return "{} | {}".format(self.label, self.type)
+
+class Nodes:
+    def __init__(self):
+        self.nodes = []
+
+    def add(self, node):
+        self.nodes.append(node)
+
+    def get(self, index):
+        return self.nodes[index]
+
+    def total_nodes(self):
+        return len(self.nodes)
+
+    def find(self, id):
+        for node in self.nodes:
+            if node.name == id:
+                return node
+        
+        return None
